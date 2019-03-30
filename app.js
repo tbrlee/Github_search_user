@@ -15,12 +15,12 @@ searchUser.addEventListener('keyup', (e) => {
 
     if(userText !== '') {
         //console.log(userText);
-
         //Make http call
         github.getUser(userText).then(data => {
             //console.log(data);
             if(data.profile.message === 'Not Found') {
                 //Shoe alert
+                ui.showAlert('User not found', 'alert alert-danger');
             } else {
                 //Show profile
                 ui.showProfile(data.profile);
